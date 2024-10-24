@@ -1,0 +1,84 @@
+1. program to display current date and time in java.
+Ans:
+
+Output:
+javac DateTime.java
+java DateTime
+2023-03-30
+10:33:11.025394800
+2. Write a program to convert a date to a string in the format "MM/dd/yyyy".
+Ans:
+
+Output:
+javac DateToString.java
+java DateToString
+Formatted Date: 04/04/2023
+3. What is the difference between collections and streams?Explain with an Example
+import java.time.*;
+public class DateTime {
+public static void main(String[] args) {
+LocalDate date = LocalDate.now();
+System.out.println(date);
+LocalTime time=LocalTime.now();
+System.out.println(time);
+}
+}
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+public class DateToString {
+public static void main(String[] args) {
+LocalDate date = LocalDate.of(2023, 4, 4);
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+String formattedDate = date.format(formatter);
+System.out.println("Formatted Date: " + formattedDate);
+}
+}
+
+Output:
+javac DateToString.java
+java DateToString
+Formatted Date: 04/04/2023
+
+3. What is the difference between collections and streams?Explain with an Example
+
+Streams::
+->It doesn't store data,it operates on the source data structure i.e collection.
+->They use functional interfaces like lambda which makes it a good fit for programming languages.
+->Java Streams are consumable i,e; to traverse the stream,it needs to be created eveytime.
+->Java Streams support both sequential and parallel processing.
+->Streams are iterated internally by just mentoring the operations.
+
+
+Collections::
+
+It holds all the data that the data structure currently has in a particular data structure like Set,List or Map.
+They dont use functional interfaces.
+->They are non-consumable i.e ;can be traversable multiple times without creating it again.
+->It supports parallel processing and parallel processing can be helpful in achieving high performanc.
+->Collections are iterated externally using loops.
+
+
+Ex: Collections
+
+import java.io.*;
+import java.util.*;
+class Main {
+public static void main(String[] args)
+{
+List<String> CompanyList = new ArrayList<>();
+CompanyList.add("Google");
+CompanyList.add("Apple");
+CompanyList.add("Microsoft");
+Comparator<String> com = (String o1, String o2) -> o1.compareTo(o2);
+Collections.sort(CompanyList, com);
+for (String name : CompanyList) {
+System.out.println(name);
+}
+}
+}
+
+Output:
+Apple
+Google
+Microsoft
